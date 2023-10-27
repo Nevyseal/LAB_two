@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title>Local Storage</title>
+ <link rel="stylesheet" href="style.css">
+ <script type="text/javascript">
+
+ const localStorage = window.localStorage;
+
+	 const initialize = () => {
+ 		if (localStorage) {
+ 			const count = localStorage.getItem("visitCount") || 0;
+
+ 			const newCount = parseInt(count) + 1;
+ 			localStorage.setItem("visitCount", newCount);
+ 			updateDOM();
+ 			}
+ 		};
+ 	const updateDOM = () => {
+			const count = localStorage.getItem("visitCount") || 0;
+ 			const storedPreferences = localStorage.getItem("preference");
+			const preference = storedPreferences
+ 			? JSON.parse(storedPreferences)
+ 			: {};
+
+ 				document.getElementById("visitCount" ).innerHTML = `Visit count ${count}`;
+
+ 				document.body.style.background = preference.color || "white";
+
+ 				showAllStoredKeyValues();
+ 		};
+
+ 	const setColorPreference = color => {
+ 		const localStorage = window.localStorage;
+ 		const preference = { color }
+ 			localStorage.setItem("preference", JSON.stringify(preference));
+ 			updateDOM();
+ 		};
+ 	const removeCount = () => {
+ 			localStorage.removeItem("visitCount");
+ 			updateDOM();
+		};
+	const clearAll = () => {
+ 			localStorage.clear();
+ 			updateDOM();
+		};
+	const showAllStoredKeyValues = () => {
+ 		console.log(`we have ${localStorage.length} values`);
+ 		const ul = document.getElementById("storedItems");
+ 		ul.innerHTML = "";
+
+ 			for (let index = 0; index < localStorage.length; index++) {
+ 				const key = localStorage.key(index);
+ 				var li = document.createElement("li");
+ 			li.appendChild(
+ 					document.createTextNode(`${key} = ${localStorage.getItem(key)}`)
+ 					);
+ 				ul.appendChild(li);
+ 			}
+ 		};
+
+ </script>
+ </head>
+ <body onload="initialize()">
+ 	<ui id="storedItems"></ui>
+ 	<table>
+ 	<tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Registration Number</th>
+    </tr>
+    <tr>
+        <td><img src="images/WhatsApp Image 2023-10-27 at 09.44.23_cf4a5129.jpg" alt="Image"></td>
+        <td>Francis Wambugu Iraki</td>
+        <td>SCT221-0404/2021</td>
+    </tr>
+	</table>
+ <button type="button" onclick="setColorPreference('red')">Red</button>
+ <button type="button" 
+onclick="setColorPreference('green')">Green</button>
+ <button type="button" 
+onclick="setColorPreference('blue')">Blue</button>
+ <div id="visitCount"></div>
+
+ <button type="button" onclick="removeCount()">Remove count</button>
+ <button type="button" onclick="clearAll()">Clear all</button>
+
+ </body>
+</html>
