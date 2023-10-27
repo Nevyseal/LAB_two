@@ -1,9 +1,51 @@
-img{
-    border-collapse: collapse;
-    width: 100%;
-    text-align: center;
-    vertical-align: middle;
-    padding: 10px;
-    height: 150px;
-    width: 150px;
-}
+/* This is the style sheet for the web page */
+
+/* Select the body element and apply some styles */
+body {
+    background-color: #F0F0F0; /* A light gray color */
+    font-family: Arial, sans-serif; /* A common font */
+  }
+  
+  /* Select the h1 element and apply some styles */
+  h1 {
+    color: orange; /* The same color as in the HTML file */
+    text-align: center; /* Center the heading */
+    font-size: 36px; /* A larger font size */
+    margin-top: 20px; /* Add some space above the heading */
+    margin-bottom: 10px; /* Add some space below the heading */
+  }
+  
+  /* Select the table element and apply some styles */
+  table {
+    border-collapse: collapse; /* Remove the gaps between the cells */
+    width: 80%; /* Set the width of the table */
+    margin: 0 auto; /* Center the table horizontally */
+  }
+  
+  /* Select the th and td elements and apply some styles */
+  th, td {
+    border: 1px solid black; /* Add a black border around each cell */
+    padding: 10px; /* Add some space inside each cell */
+  }
+  
+  /* Select the image element and apply some styles */
+  img {
+    width: 100px; /* Set the width of the image */
+    height: auto; /* Adjust the height of the image proportionally */
+  }
+  
+  /* Select the elements with id box-one and box-two and apply some styles */
+  #box-one, #box-two {
+    width: 40%; /* Set the width of the boxes */
+    margin: 10px auto; /* Add some space around and center the boxes horizontally */
+  }
+  
+  /* Select the element with id box-one and apply some styles */
+  #box-one {
+    background-color: gray; /* The same color as in the HTML file */
+  }
+  
+  /* Select the element with id box-two and apply some styles */
+  #box-two {
+    background-color: yellow; /* The same color as in the HTML file */
+  }
